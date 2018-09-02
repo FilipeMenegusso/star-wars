@@ -1,0 +1,7 @@
+<nav class="mx-auto" aria-label="Star Wars Navigation" *ngIf="pagination.pages.length">
+    <ul class="pagination pagination-md">
+        <li class="page-item" *ngFor="let page of pagination.pages" [ngClass]="{'active disabled': page === pagination.currentPage}">
+            <a class="page-link" (click)="selectPage(page)">{{page}}</a>
+        </li>
+    </ul>
+</nav>

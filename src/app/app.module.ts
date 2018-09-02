@@ -1,16 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { appRoutes } from './routes';
+
+import { StarWarsService } from './shared/star-wars.service';
+
+import { StarWarsAppComponent } from './star-wars-app.component';
+import { PeopleListComponent, PersonDetailsComponent, PeopleListResolver } from './people';
+import { PaginationComponent } from './shared/pagination/pagination.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    ModalModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  declarations: [
+    StarWarsAppComponent,
+    PeopleListComponent,
+    PersonDetailsComponent,
+    PaginationComponent,
+    SpinnerComponent
+  ],
+
+  providers: [StarWarsService, PeopleListResolver],
+
+  bootstrap: [StarWarsAppComponent],
+
+  entryComponents: [PersonDetailsComponent, SpinnerComponent]
 })
 export class AppModule { }

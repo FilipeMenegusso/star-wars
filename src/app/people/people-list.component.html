@@ -1,0 +1,21 @@
+<div class="row mt-3">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="search">SEARCH</label>
+            <input class="form-control" id="search" placeholder="Enter search" [(ngModel)]="search">
+        </div>
+    </div>
+    <div class="col-md-8 mt-2-custom" *ngIf="!search">
+        <pagination [pagination]="peoplePagination" (currentPage)="updateCurrentPage($event)"></pagination>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 mt-3 mr-3" *ngFor="let person of people">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body mx-auto text-center">
+                <h5 class="card-title">{{person.name}}</h5>
+                <button class="btn btn-primary" (click)="showPersonDetails(person)">Show Details</button>
+            </div>
+        </div>
+    </div>
+</div>

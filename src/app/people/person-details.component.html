@@ -1,0 +1,40 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left"> {{ person.name }} </h4>
+	<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body modal-lg">
+	<div class="row">
+		<div class="col-md-4">
+			<label class="font-weight-bold">Height:</label> {{person.height}}
+		</div>
+		<div class="col-md-4">
+			<label class="font-weight-bold">Mass:</label> {{person.mass}}
+		</div>
+		<div class="col-md-4">
+			<label class="font-weight-bold">Gender:</label> {{person.gender}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<label class="font-weight-bold">Hair color:</label> {{person.hair_color}}
+		</div>
+		<div class="col-md-4">
+			<label class="font-weight-bold">Skin color:</label> {{person.skin_color}}
+		</div>
+		<div class="col-md-4">
+			<label class="font-weight-bold">Eye color:</label> {{person.eye_color}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label class="font-weight-bold">Birth year:</label> {{person.birth_year}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label class="font-weight-bold">Created:</label> {{person.created | date:'fullDate'}}
+		</div>
+	</div>
+</div>
